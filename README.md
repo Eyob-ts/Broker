@@ -34,7 +34,7 @@ A modern web application built with Laravel and React using Inertia.js for seaml
 
 3. **Install JavaScript dependencies**
    ```bash
-   npm install
+   bun install
    ```
 
 4. **Environment setup**
@@ -45,8 +45,8 @@ A modern web application built with Laravel and React using Inertia.js for seaml
 
 5. **Database setup**
    ```bash
-   # For SQLite (default)
-   touch database/database.sqlite
+   # For MySQL (default)
+   touch database/database.mySQL
    
    # Run migrations
    php artisan migrate
@@ -54,7 +54,7 @@ A modern web application built with Laravel and React using Inertia.js for seaml
 
 6. **Build assets**
    ```bash
-   npm run build
+   bun run build
    ```
 
 ## 🏃‍♂️ Running the Application
@@ -62,7 +62,7 @@ A modern web application built with Laravel and React using Inertia.js for seaml
 ### Development Mode
 ```bash
 # Start all development servers (Laravel, Queue, Vite)
-composer dev
+composer run dev
 ```
 
 Or run services individually:
@@ -71,7 +71,7 @@ Or run services individually:
 php artisan serve
 
 # Frontend development server
-npm run dev
+bun run dev
 
 # Queue worker (if using queues)
 php artisan queue:work
@@ -80,7 +80,7 @@ php artisan queue:work
 ### Production Mode
 ```bash
 # Build assets for production
-npm run build
+bun run build
 
 # Serve the application
 php artisan serve --env=production

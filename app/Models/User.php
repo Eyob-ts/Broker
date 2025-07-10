@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Data\Role;
+use App\Enums\PermissionEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -88,5 +89,9 @@ class User extends Authenticatable
     public function isAdminOrEditor(): bool
     {
         return $this->isAdmin() || $this->isEditor() || $this->isUser();
+    }
+    public function hasPermission(PermissionEnum $permission): bool
+    {
+        return in_array($permission, $this->role->permissions());
     }
 }

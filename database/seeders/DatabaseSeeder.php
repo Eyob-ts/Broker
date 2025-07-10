@@ -36,5 +36,13 @@ class DatabaseSeeder extends Seeder
             'role' => Role::USER,
 
         ]);
+        $this->call([
+            CategorySeeder::class,
+        ]);
+        $this->call([
+            ListingSeeder::class,
+        ]);
     }
+
+
 }
