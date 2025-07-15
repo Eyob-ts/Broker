@@ -82,6 +82,10 @@ class User extends Authenticatable
     {
         return $this->hasRole('user');
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class)->latest();
+    }
 
     /**
      * Check if user has admin or editor role
