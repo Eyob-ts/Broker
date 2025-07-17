@@ -15,7 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Admin only routes
     Route::middleware(['role:admin'])->group(function () {
-        Route::get('admin', function () {
+        Route::get('admin/dashboard', function () {
             return Inertia::render('admin/dashboard');
         })->name('admin.dashboard');
 
