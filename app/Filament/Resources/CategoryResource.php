@@ -26,9 +26,8 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->maxLength(65535)
             ]);
     }
 
@@ -36,7 +35,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('description')->limit(50),
             ])
             ->filters([
                 //
