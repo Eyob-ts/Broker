@@ -39,7 +39,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('description')->limit(50),
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
