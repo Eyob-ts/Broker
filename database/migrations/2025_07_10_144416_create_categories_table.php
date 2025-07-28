@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('pid')->unique();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->json('fields')->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,34 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
-                    ->maxLength(65535)
+                    ->maxLength(65535),
+                Forms\Components\Repeater::make('fields')
+                ->label('Custom Form Fields')
+                ->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->label('Field Name')
+                        ->required(),
+                    Forms\Components\TextInput::make('label')
+                        ->label('Label')
+                        ->required(),
+                    Forms\Components\Select::make('type')
+                        ->label('Input Type')
+                        ->options([
+                            'text' => 'Text',
+                            'number' => 'Number',
+                            'select' => 'Select',
+                            'textarea' => 'Textarea',
+                        ])
+                        ->required(),
+
+                    Forms\Components\Toggle::make('required')
+                        ->label('Is Required'),
+                ])
+                ->addActionLabel('Add Field')
+                ->collapsible()
+                ->cloneable()
+                ->reorderable()
+                ->columns(2),
             ]);
     }
 
@@ -39,7 +66,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('description')->limit(50),
             ])
             ->filters([
-                
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

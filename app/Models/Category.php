@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['pid', 'name','description'];
+    protected $fillable = ['pid', 'name','description','fields'];
 
-    
+    protected $casts = [
+        'fields' => 'array',
+    ];
+
+
 }
