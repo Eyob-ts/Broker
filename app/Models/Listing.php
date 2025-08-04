@@ -15,6 +15,7 @@ class Listing extends Model
         'status',
         'category_id',
         'broker_id',
+        'field', 
     ];
 
     protected $casts = [
